@@ -1,0 +1,45 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+.main-app {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.right-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+.main-nav ul {
+	margin: 1em 0 .5em;
+	text-align: center;
+}
+.main-nav li {
+	display: inline;
+}
+.main-nav a {
+	display: inline-block;
+	padding: .5em 1.5em;
+}
+
+.middle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
