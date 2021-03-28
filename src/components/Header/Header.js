@@ -29,10 +29,9 @@ function Header() {
 function Header() {
 	return (
 		<AppBar position="static">
-  			<Toolbar className="main-header">
-			  	<Avatar alt="Elisha Shalmon" src={profilePicture} height="100" width="100"/>	
-			  	{/*<img src={profilePicture} height="100" width="100" />*/}
-				<div className="right-header">
+  			<Toolbar className="header">
+			  	<Avatar alt="Elisha Shalmon" src={profilePicture}/>	
+				<div>
 					<Button color="inherit">Home</Button>
 					<Button color="inherit">About</Button>
 					<Button color="inherit">Todo List</Button>

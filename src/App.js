@@ -6,25 +6,15 @@ import TodoList from './components/TodoList'
 
 function App() {
 	return (
-		<div className="h-100 d-flex flex-column justify-content-between">
-			<Header />
-			
-			<div className="container">
-				<div className="row justify-content-center">
-					<div className="col-4">
-						<Login />
-					</div>
-				</div>
-			
-				<div className="row justify-content-center">
-					<div className="col-4">
-              <TodoList />
-					</div>
-				</div>
+		<div className="wrapper">
+			<Header/>
+			<div className="main">
+				<Login />
+				<div className="gap"></div>
+				<TodoList />
 			</div>
-
 			<Footer />		
-		</div>		
+		</div>	
 	)
 }
 

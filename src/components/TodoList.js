@@ -1,32 +1,54 @@
-
+import {useState} from 'react';
+import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
+import InputLabel from '@material-ui/core/InputLabel';
 
 function TodoList() {
+    const [todoList, setTodoList] = useState([]);
 
-    function handleDelete(item) {
-        console.log("Delete " + item);
+    const loadList = async () => {
+        const response = await fetch('http://nztodo.herokuapp.com/api/tasks/?format=json');
+        const todos = await response.json();
+        setTodoList(todos);
+        console.log(todoList.length);
     }
 
-    const list = [
-        {"id":9870,"title":"Lavi","description":"desc","group":"45","when":"2019-09-07T18:27:32.960000Z"},
-        {"id":9874,"title":"Ofer","description":"desc","group":"45","when":"2019-09-07T18:27:32.960000Z"},
-        {"id":9910,"title":"Thor","description":"yuval_azani7","group":"45","when":"2019-09-21T12:30:35.620000Z"},
-        {"id":9914,"title":"Loreal","description":"yuval_azani7","group":"45","when":"2019-09-21T12:30:35.620000Z"}
-    ]
+    const handleDelete = async (item) => {
+        await fetch(`http://nztodo.herokuapp.com/api/task/${item.id}?format=json`, {
+                method: 'DELETE'
+        });
+        loadList();
+    }
+
     return(
-        <ul className = "list-group">
-            {
-                list.map(function(item) {
-                    return (
-                        <li className = "align-items-center list-group-item d-flex justify-content-between" key = {item.id}>
-                            {item.title}
-                            <button onClick = {() => handleDelete(item.title)} type="button" class="btn btn-danger btn-sm">
-								Delete
-							</button>  
-                        </li>
-                    )
-                })
-            }
-        </ul>
+        <Paper elevation={9} className="container">
+            <div className="load-list">
+                <Button onClick={loadList} variant="contained" color="secondary">
+                    Load List
+                </Button>
+
+                <ul>
+                    {
+                        todoList.map(function(item) {
+                            return (
+                                <li className="item" key = {item.id}>
+                                    <InputLabel>
+                                    {
+                                        item.title
+                                    }
+                                    </InputLabel>
+                                    <IconButton aria-label="delete" onClick = {() => handleDelete(item)}>
+                                        <DeleteIcon/>
+                                    </IconButton>
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
+            </div>
+        </Paper>
     )
 }
 

@@ -1,45 +1,63 @@
-body {
-    display: flex;
-    flex-direction: column;
-}
-.main-app {
+html, body {
     height: 100%;
+}
+
+.wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%;
 }
 
-.main-header {
-    display: flex;
+.header {
+    display:flex;
     justify-content: space-between;
 }
 
-.right-header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-around;
-}
-
-.main-nav ul {
-	margin: 1em 0 .5em;
-	text-align: center;
-}
-.main-nav li {
-	display: inline;
-}
-.main-nav a {
-	display: inline-block;
-	padding: .5em 1.5em;
-}
-
-.middle-container {
+.main {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    padding: 60px 0;
+}
+
+.container {
+    width: 25%;
+    margin: auto;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+}
+
+.login-item {
+    margin: 15px 0;
+}
+
+.gap {
+    height: 25px;
+}
+
+.load-list {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
 .footer {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
